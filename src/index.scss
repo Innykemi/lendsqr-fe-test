@@ -1,0 +1,25 @@
+$white: #fff;
+$primary-color: #545F7D;
+$title-color: #213F7D;
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('/assets/fonts/avenir-next-regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Avenir Next Medium';
+  src: url('/assets/fonts/avenir-next-medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Avenir Next Bold';
+  src: url('/assets/fonts/avenir-next-bold.ttf') format('truetype');
+}
+
+body {
+  background-color: $white;
+  color: $primary-color;
+  font-size: 16px;
+  font-family: "Avenir Next", sans-serif;
+}
