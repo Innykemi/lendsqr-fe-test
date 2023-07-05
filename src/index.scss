@@ -1,6 +1,8 @@
-$white: #fff;
-$primary-color: #545F7D;
-$title-color: #213F7D;
+@import './assets/styles/variables';
+@import './assets/styles/mixins';
+@import './Login/login.scss';
+@import './layout/layout.scss';
+@import './Dashboard/dashboard.scss';
 
 @font-face {
   font-family: 'Avenir Next';
@@ -17,9 +19,57 @@ $title-color: #213F7D;
   src: url('/assets/fonts/avenir-next-bold.ttf') format('truetype');
 }
 
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
 body {
   background-color: $white;
   color: $primary-color;
   font-size: 16px;
   font-family: "Avenir Next", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+  min-height: 100vh;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding-inline-start: 1.5em;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  vertical-align: baseline;
+  overflow: visible;
+  outline: none;
+  cursor: pointer;
+}
+
+h1 {
+  font-family: "Avenir Next Bold", sans-serif;
+  font-weight: 700;
+  margin-block: 0;
+}
+
+h2, h3, h4, h5, h6, p {
+  font-family: 'Work Sans', sans-serif;
 }
