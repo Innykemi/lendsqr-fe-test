@@ -1,8 +1,9 @@
 @import './assets/styles/variables';
 @import './assets/styles/mixins';
-@import './Login/login.scss';
-@import './layout/layout.scss';
-@import './Dashboard/dashboard.scss';
+@import './login/login.scss';
+@import './common/layout/layout.scss';
+@import './common/usersCard/usersCard.scss';
+@import './dashboard/dashboard.scss';
 
 @font-face {
   font-family: 'Avenir Next';
@@ -72,4 +73,8 @@ h1 {
 
 h2, h3, h4, h5, h6, p {
   font-family: 'Work Sans', sans-serif;
+}
+
+h3 {
+  font-size: 1.5rem;
 }
