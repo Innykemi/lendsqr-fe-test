@@ -1,6 +1,10 @@
 $white: #ffffff;
 $primary-color: #545F7D;
-$title-color: #213F7D;
 $primary-dark: #39CDCC;
-$sidebar-width: 17.6875rem;
-$content-window-width: calc(100vw - #{$sidebar-width});
+$primary-darker: #213F7D;
+$sidenavbar-width-min: 17.25rem;
+$sidenavbar-width: 17.6875rem;
+$content-window-width-min: calc(100vw - #{$sidenavbar-width-min});
+$content-window-width: calc(100vw - #{$sidenavbar-width});
+$topbar-height: 6.25rem;
+$layout-margin-top: calc(100vh - #{$topbar-height});
