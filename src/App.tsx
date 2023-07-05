@@ -4,8 +4,8 @@ import {
   Route,
 } from "react-router-dom";
 
-import Login from "./login";
-import Dashboard from "./dashboard";
+import Login from "./login/login";
+import Dashboard from "./dashboard/dashboard";
 
 function App() {
   return (
