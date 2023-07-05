@@ -1,0 +1,25 @@
+.users-list-wrapper {
+  @include flex-column;
+  gap: 1.5rem;
+  &__header-title {
+    color: $primary-darker;
+    font-weight: 500;
+  }
+  &__users-summary {
+    @include flex-row;
+    gap: 1.25rem;
+  }
+  @media screen and (max-width: 991px) {
+    gap: 2rem;
+    &__users-summary {
+      flex-wrap: wrap;
+      gap: 1.625rem;
+    }
+  }
+  @media screen and (min-width: 1440px) {
+    gap: 2.5rem;
+    &__users-summary {
+      gap: 1.625rem;
+    }
+  }
+}
