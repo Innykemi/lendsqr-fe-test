@@ -5,14 +5,16 @@ import {
 } from "react-router-dom";
 
 import Login from "./login/login";
-import Dashboard from "./dashboard/dashboard";
+import Users from "./dashboard/Users";
+import UserDetails from "./dashboard/UserDetails";
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/users" element={<Dashboard />} />
+        <Route path="/users" element={<Users />} />
+        <Route path="/user/id" element={<UserDetails />} />
       </Routes>
     </Router>
   );
