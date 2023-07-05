@@ -1,0 +1,74 @@
+.layout-wrapper {
+  width: 100%;
+  margin-top: $topbar-height;
+  overflow-x: hidden;
+  &__container {
+    display: flex;
+    &--content {
+      width: $content-window-width-min;
+      margin-left: auto;
+      padding: 3.75rem;
+    }
+  }
+  @media screen and (min-width: 1440px) {
+    width: $content-window-width;
+  }
+}
+
+.topbar-wrapper {
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 3.75rem 1.25rem 1.875rem ;
+  border-radius: 0.5rem;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: white;
+  filter: drop-shadow(3px 0px 20px rgba(0, 0, 0, 0.04));
+  height: $topbar-height;
+  svg {
+    width: 145px;
+  }
+}
+
+.sidenavbar-wrapper {
+  @include flex-column;
+  gap: 0.625rem;
+  width: $sidenavbar-width-min;
+  min-height: 100vh;
+  position: fixed;
+  left: 0;
+  padding: 2.4375rem 0;
+  background: $white;
+  box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.04);
+  &__nav-item {
+    @include flex-row;
+    gap: 0.625rem;
+    padding: 0.625rem 1.875rem 0.6875rem 1.875rem;
+    color: rgba(33, 63, 125, 0.6);
+    svg {
+      width: 1rem;
+      height: 1rem;
+      fill: rgba(33, 63, 125, 0.6);
+    }
+    &.active {
+      color: $primary-darker;
+      background-color: rgba(57, 205, 204, 0.06);
+      border-left: 3px solid $primary-dark;
+      svg {
+        fill: $primary-darker;
+      }
+    }
+  }
+  &__nav-subtitle {
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    color: $primary-color;
+    padding: 0 1.875rem;
+  }
+  @media screen and (min-width: 1440px) {
+    width: $sidenavbar-width;
+  }
+}
