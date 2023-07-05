@@ -1,0 +1,117 @@
+.login-wrapper {
+  @include flex-row;
+  position: relative;
+  background-color: $white;
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+
+  &__logo-banner {
+    position: absolute;
+    top: 100px;
+    left: 97px;
+    .logo-img {
+      width: 10.875rem;
+    }
+  }
+
+  &__login-img-wrapper {
+    @include flex-column-justify-center;
+    padding: 0 4.3125rem 0 4.1875rem;
+    width: 100%;
+    min-height: 100vh;
+    .login-img {
+      width: 600px;
+    }
+  }
+
+  &__form-wrapper {
+    @include flex-column-justify-center;
+    width: 100%;
+    min-height: 100vh;
+    padding: 0 6.25rem;
+
+    &--header {
+      @include flex-column;
+      gap: 0.625rem;
+      margin-bottom: 3.75rem;
+      .title {
+        color: $title-color;
+        font-size: 2.5rem;
+        letter-spacing: -0.04em;
+      }
+      .sub-title {
+        color: $primary-color;
+        font-size: 1.25rem;
+      }
+    }
+    &--input-fields {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      input {
+        @include input-field-style;
+        border-radius: 5px;
+        height: 3.125rem;
+        &::placeholder {
+          @include input-placeholder;
+        }
+        &:-ms-input-placeholder {
+          @include input-placeholder;
+        }
+        &::-ms-input-placeholder {
+          @include input-placeholder;
+        }
+      }
+    }
+    &--forgot-password {
+      font-size: 0.75rem;
+      color: $primary-dark;
+      text-transform: uppercase;
+      font-family: "Avenir Next Medium", sans-serif;
+      margin: 1.5rem 0 1.875rem 0;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+    }
+    &--login-btn {
+      @include btn-style;
+      font-size: 0.875rem;
+      width: 100%;
+      padding: 15px 4px 13px 4px;
+      background-color: $primary-dark;
+      color: $white;
+      border-radius: 0.5rem;
+      text-transform: uppercase;
+      font-family: "Avenir Next Medium", sans-serif;
+    }
+    @media screen and (min-width: 1440px) {
+      padding: 0 9.8125rem 0 6.25rem;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    @include flex-column;
+    gap: 2rem;
+    &__logo-banner {
+      position: relative;
+      top: 0;
+      left: 0;
+      padding-top: 3.125rem;
+    }
+    &__login-img-wrapper {
+      padding: 0 3.125rem;
+      min-height: auto;
+      .login-img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    &__form-wrapper {
+      padding: 0 3.125rem 3.125rem;
+      min-height: auto;
+      .header-text {
+        font-size: 1.5rem;
+      }
+    }
+  }     
+}
