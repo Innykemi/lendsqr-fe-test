@@ -1,13 +1,21 @@
-import React from 'react';
-import Logo from "./assets/images/logo.svg";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
+
+import Login from "./login";
+import Dashboard from "./dashboard";
 
 function App() {
   return (
-    <div className="">
-        <img src={Logo} alt="Lendsqr" />
-        <h1>Welcome!</h1>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/users" element={<Dashboard />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
