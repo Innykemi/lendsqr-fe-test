@@ -1,10 +1,10 @@
 .user-details-wrapper {
   @include flex-column;
   gap: 2.2rem;
-  &__header {
+  .header {
     @include flex-column;
     gap: 1.78rem;
-    &--back {
+    .back-to-link {
       @include flex-row;
       gap: 0.8125rem;
       svg {
@@ -12,25 +12,25 @@
         height: 1.67rem;
       }
     }
-    &--title {
+    .header-title-wrapper {
       @include flex-row-justify-between;
       flex-wrap: wrap;
       gap: 1rem;
-      &--text {
+      .header-title {
         color: $primary-darker;
         font-weight: 500;
       }
-      &--buttons {
+      .header-buttons {
         @include flex-row;
         flex-wrap: wrap;
         gap: 1rem;
       }
     }
   }
-  &__user-info {
+  .user-info {
     @include flex-column;
     gap: 1.67rem;
-    &--primary-info {
+    .user-primary-info {
       .primary-info-wrapper {
         @include flex-row;
         flex-wrap: wrap;
@@ -43,10 +43,10 @@
         filter: drop-shadow(3px 5px 20px rgba(0, 0, 0, 0.04));
         width: 100%;
         box-sizing: border-box;
-        &__user-summary {
+        .user-summary {
           @include flex-row;
           gap: 1.11rem;
-          &--user-icon {
+          .icon {
             @include flex-centered-row;
             min-width: 5.56rem;
             min-height: 5.56rem;
@@ -59,20 +59,20 @@
               height: 2.22rem;
             }
           }
-          &--user {
+          .user-details {
             @include flex-column;
             gap: 0.5rem;
-            &--user-name {
+            .user-name {
               font-size: 1.22rem;
               font-weight: 500;
               color: $primary-darker;
             }
-            &--user-id {
+            .user-id {
               font-size: 0.875rem;
             }
           }
         }
-        &__user-tier {
+        .user-tier {
           @include flex-column;
           gap: 0.625rem;
           font-size: 0.875rem;
@@ -90,7 +90,7 @@
             @include user-border-seperator;
           }
         }
-        &__user-bank-details {
+        .user-bank-details {
           @include flex-column;
           gap: 0.75rem;
           position: relative;
@@ -112,7 +112,7 @@
         @include flex-row;
       }
     }
-    &--tab-info {
+    .user-tab-info {
       @include flex-column;
       gap: 1.67rem;
       border-radius: 4px;
@@ -134,15 +134,15 @@
           font-size: 0.89rem;
           color: $primary-darker;
         }
-        &__item-group {
+        .item-group {
           @include flex-row;
           flex-wrap: wrap;
-          row-gap: 1.67rem;
+          gap: 1.67rem;
           width: 100%;
-          &--item {
+          .item {
             @include flex-column;
             gap: 0.5rem;
-            flex-basis: 20%; // calc(20% - 21.4px)
+            flex-basis: calc(20% - 21.4px);
             .item-title {
               font-size: 0.67rem;
               text-transform: uppercase;
@@ -151,9 +151,9 @@
         }
       }
       .education-employment-info {
-        &__item-group {
-          &--item {
-            flex-basis: 25%;
+        .item-group {
+          .item {
+            flex-basis: calc(25% - 20.1px);
           }
         }
       }
@@ -165,29 +165,29 @@
   }
   @media screen and (min-width: 1440px) {
     gap: 2.5rem;
-    &__header {
+    .header {
       gap: 2rem;
-      &--back {
+      .back-to-link {
         svg {
           width: 1.875rem;
           height: 1.875rem;
         }
       }
-      &--title {
-        &--buttons {
+      .header-title-wrapper {
+        .header-buttons {
           gap: 1.25rem;
         }
       }
     }
-    &__user-info {
+    .user-info {
       gap: 1.875rem;
-      &--primary-info {
+      .user-primary-info {
         .primary-info-wrapper {
           gap: 1.875rem;
           padding: 1.875rem 1.875rem 0;
-          &__user-summary {
+          .user-summary {
             gap: 1.25rem;
-            &--user-icon {
+            .icon {
               @include flex-centered-row;
               min-width: 6.25rem;
               min-height: 6.25rem;
@@ -198,16 +198,16 @@
                 height: 2.5rem;
               }
             }
-            &--user {
-              &--user-name {
+            .user-details {
+              .user-name {
                 font-size: 1.375rem;
               }
             }
           }
-          &__user-tier {
+          .user-tier {
             padding-left: 1.875rem;
           }
-          &__user-bank-details {
+          .user-bank-details {
             padding-left: 1.875rem;
             h4 {
               font-size: 1.375rem;
@@ -218,7 +218,7 @@
           @include flex-row;
         }
       }
-      &--tab-info {
+      .user-tab-info {
         padding: 1.875rem;
         gap: 1.875rem;
         .personal-info,
@@ -231,9 +231,9 @@
           h5 {
             font-size: 1rem;
           }
-          &__item-group {
-            row-gap: 1.875rem;
-            &--item {
+          .item-group {
+            gap: 1.875rem;
+            .item {
               .item-title {
                 font-size: 0.75rem;
               }
