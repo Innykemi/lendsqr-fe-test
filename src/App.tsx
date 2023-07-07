@@ -4,7 +4,7 @@ import {
   Route,
 } from "react-router-dom";
 
-import Login from "./login/login";
+import Login from "./login/Login";
 import Users from "./dashboard/Users";
 import UserDetails from "./dashboard/UserDetails";
 
