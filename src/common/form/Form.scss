@@ -1,0 +1,22 @@
+.text-field {
+  @include flex-column;
+  gap: 0.375rem;
+  label {
+    font-size: 0.875rem;
+    color: $primary-color;
+  }
+  input {
+    @include input-field-style;
+    border-radius: 5px;
+    height: 3.125rem;
+    &::placeholder {
+      @include input-placeholder;
+    }
+    &:-ms-input-placeholder {
+      @include input-placeholder;
+    }
+    &::-ms-input-placeholder {
+      @include input-placeholder;
+    }
+  }
+}
