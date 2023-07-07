@@ -1,5 +1,5 @@
 import Layout from '../common/layout/layout';
-import UsersCard from '../common/usersCard/UsersCard';
+import UsersCard from '../common/card/Card';
 import { ReactComponent as UsersOutline } from "../assets/images/icons/users-outline.svg";
 import { ReactComponent as UserFriendsOutline } from "../assets/images/icons/user-friends-outline.svg";
 import { ReactComponent as LoanIcon } from "../assets/images/icons/loan.svg";
