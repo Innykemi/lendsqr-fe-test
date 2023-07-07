@@ -1,8 +1,9 @@
 @import './assets/styles/variables';
 @import './assets/styles/mixins';
-@import './login/login.scss';
+@import './login/Login.scss';
 @import './common/layout/layout.scss';
-@import './common/usersCard/usersCard.scss';
+@import './common/card/Card.scss';
+@import './common/button/Button.scss';
 @import './dashboard/Users.scss';
 @import './dashboard/UserDetails.scss';
 
@@ -56,10 +57,9 @@ a {
 
 button {
   border: none;
-  background: none;
   padding: 0;
   margin: 0;
-  font: inherit;
+  font-family: "Work Sans", sans-serif;
   vertical-align: baseline;
   overflow: visible;
   outline: none;
@@ -73,9 +73,13 @@ h1 {
 }
 
 h2, h3, h4, h5, h6, p {
-  font-family: 'Work Sans', sans-serif;
+  font-family: "Work Sans", sans-serif;
+  font-weight: normal;
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size: 1.33rem;
+  @media screen and (min-width: 1440px) {
+    font-size: 1.5rem;
+  }
 }
