@@ -1,5 +1,5 @@
-import Topbar from "./topbar";
-import SideNavbar from "./sidenavbar";
+import Topbar from "./Topbar";
+import SideNavbar from "./SideNavbar";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -9,9 +9,9 @@ function Layout({ children }: LayoutProps) {
   return (
     <div className="layout-wrapper">
       <Topbar />
-      <div className="layout-wrapper__container">
+      <div className="container">
         <SideNavbar />
-        <div className="layout-wrapper__container--content">
+        <div className="content-container">
           {children}
         </div>
       </div>

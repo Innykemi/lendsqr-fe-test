@@ -2,9 +2,9 @@
   width: 100%;
   margin-top: 5.56rem;
   overflow-x: hidden;
-  &__container {
+  .container {
     display: flex;
-    &--content {
+    .content-container {
       width: calc(100vw - 15.72rem);
       margin-left: auto;
       padding: 3.33rem;
@@ -12,7 +12,7 @@
   }
   @media screen and (min-width: 1440px) {
     margin-top: 6.25rem;
-    &--content {
+    .content-container {
       width: calc(100vw - 17.6875rem);
       padding: 3.75rem;
     }
@@ -44,13 +44,15 @@
   @include flex-column;
   gap: 0.625rem;
   width: 15.72rem;
-  min-height: 100vh;
+  height: calc(100vh - 5.56rem);
+  min-height: calc(100vh - 5.56rem);
   position: fixed;
   left: 0;
-  padding: 2.4375rem 0;
+  padding: 2.4375rem 0 0;
   background: $white;
   box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.04);
-  &__nav-item {
+  overflow-y: scroll;
+  .nav-item {
     @include flex-row;
     gap: 0.625rem;
     padding: 0.625rem 1.875rem 0.6875rem 1.875rem;
@@ -60,20 +62,35 @@
       height: 1rem;
       fill: rgba(33, 63, 125, 0.6);
     }
-    &.active {
+    &.active,
+    &:hover {
       color: $primary-darker;
       background-color: rgba(57, 205, 204, 0.06);
-      border-left: 3px solid $primary-dark;
       svg {
         fill: $primary-darker;
       }
     }
+    &:hover {
+      border: none;
+    }
+    &.active {
+      border-left: 3px solid $primary-dark;
+    }
   }
-  &__nav-subtitle {
+  .nav-subtitle {
     text-transform: uppercase;
     font-size: 0.75rem;
     color: $primary-color;
     padding: 0 1.875rem;
+  }
+  .nav-footer {
+    margin-top: 3.75rem;
+    border-top: 1px solid rgba(33, 63, 125, 0.1);
+    padding: 0.625rem 0 0.5rem;
+    .version {
+      padding: 1.8125rem 1.875rem 0;
+      font-size: 0.75rem;
+    }
   }
   @media screen and (min-width: 1440px) {
     width: 17.6875rem;
