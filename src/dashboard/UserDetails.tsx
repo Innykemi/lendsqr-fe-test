@@ -66,7 +66,12 @@ function UserDetails() {
               </div>
             </div>
             <div className="tab-header">
-              <div className="user-icon"></div>
+              <div className="tab-item active">General Details</div>
+              <div className="tab-item">Documents</div>
+              <div className="tab-item">Bank Details</div>
+              <div className="tab-item">Loans</div>
+              <div className="tab-item">Savings</div>
+              <div className="tab-item">App and System</div>
             </div>
           </div>
           <div className="user-tab-info">
