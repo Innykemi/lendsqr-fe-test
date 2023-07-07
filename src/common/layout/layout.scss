@@ -1,18 +1,19 @@
 .layout-wrapper {
   width: 100%;
-  margin-top: $topbar-height;
+  margin-top: 5.56rem;
   overflow-x: hidden;
   &__container {
     display: flex;
     &--content {
-      width: $content-window-width-min;
+      width: calc(100vw - 15.72rem);
       margin-left: auto;
       padding: 3.33rem;
     }
   }
   @media screen and (min-width: 1440px) {
+    margin-top: 6.25rem;
     &--content {
-      width: $content-window-width;
+      width: calc(100vw - 17.6875rem);
       padding: 3.75rem;
     }
   }
@@ -30,16 +31,19 @@
   box-sizing: border-box;
   background-color: white;
   filter: drop-shadow(3px 0px 20px rgba(0, 0, 0, 0.04));
-  height: $topbar-height;
+  height: 5.56rem;
   svg {
     width: 145px;
+  }
+  @media screen and (min-width: 1440px) {
+    height: 6.25rem;
   }
 }
 
 .sidenavbar-wrapper {
   @include flex-column;
   gap: 0.625rem;
-  width: $sidenavbar-width-min;
+  width: 15.72rem;
   min-height: 100vh;
   position: fixed;
   left: 0;
@@ -72,6 +76,6 @@
     padding: 0 1.875rem;
   }
   @media screen and (min-width: 1440px) {
-    width: $sidenavbar-width;
+    width: 17.6875rem;
   }
 }
