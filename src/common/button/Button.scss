@@ -1,0 +1,30 @@
+.button {
+  @include flex-centered-row;
+  padding: 0.67rem 0.89rem 0.61rem;
+  font-size: 0.67rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: none;
+  border-radius: 0.5rem;
+  white-space: nowrap;
+  width: calc((1280 / 1440) * var(--button-width, 9.44rem));
+  &.filled {
+    &:hover {
+    opacity: 0.8;
+    }
+  }
+  &.outlined {
+    border: 1px solid;
+  }
+  &.loose {
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+  }
+  @media screen and (min-width: 1440px) {
+    padding: 0.75rem 1rem 0.6875rem;
+    font-size: 0.875rem;
+    width: var(--button-width, 10.625rem);
+  }
+}
+  
