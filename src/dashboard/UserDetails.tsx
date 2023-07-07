@@ -1,4 +1,4 @@
-import Layout from '../common/layout/layout';
+import Layout from '../common/mainLayout/Layout';
 import { ReactComponent as UserOutline } from "../assets/images/icons/user-outline.svg";
 import { ReactComponent as BackArrow } from "../assets/images/icons/back-arrow.svg";
 import { ReactComponent as Star } from "../assets/images/icons/star.svg";
