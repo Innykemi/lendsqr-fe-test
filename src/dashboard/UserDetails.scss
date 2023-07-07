@@ -1,0 +1,249 @@
+.user-details-wrapper {
+  @include flex-column;
+  gap: 2.2rem;
+  &__header {
+    @include flex-column;
+    gap: 1.78rem;
+    &--back {
+      @include flex-row;
+      gap: 0.8125rem;
+      svg {
+        width: 1.67rem;
+        height: 1.67rem;
+      }
+    }
+    &--title {
+      @include flex-row-justify-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      &--text {
+        color: $primary-darker;
+        font-weight: 500;
+      }
+      &--buttons {
+        @include flex-row;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+    }
+  }
+  &__user-info {
+    @include flex-column;
+    gap: 1.67rem;
+    &--primary-info {
+      .primary-info-wrapper {
+        @include flex-row;
+        flex-wrap: wrap;
+        gap: 1.67rem;
+        padding: 1.67rem;
+        border-radius: 4px;
+        height: 100%;
+        box-shadow: 0px 0px 0px 1px rgba(33, 63, 125, 0.06) inset;
+        background-color: $white;
+        filter: drop-shadow(3px 5px 20px rgba(0, 0, 0, 0.04));
+        width: 100%;
+        box-sizing: border-box;
+        &__user-summary {
+          @include flex-row;
+          gap: 1.11rem;
+          &--user-icon {
+            @include flex-centered-row;
+            min-width: 5.56rem;
+            min-height: 5.56rem;
+            width: 5.56rem;
+            height: 5.56rem;
+            border-radius: 50%;
+            background-color: rgba(33, 63, 125, 0.16);
+            svg {
+              width: 2.22rem;
+              height: 2.22rem;
+            }
+          }
+          &--user {
+            @include flex-column;
+            gap: 0.5rem;
+            &--user-name {
+              font-size: 1.22rem;
+              font-weight: 500;
+              color: $primary-darker;
+            }
+            &--user-id {
+              font-size: 0.875rem;
+            }
+          }
+        }
+        &__user-tier {
+          @include flex-column;
+          gap: 0.625rem;
+          font-size: 0.875rem;
+          position: relative;
+          padding-left: 1.67rem;
+          .icons {
+            @include flex-row;
+            gap: 0.25rem;
+            svg {
+              width: 1rem;
+              height: 1rem;
+            }
+          }
+          &::before {
+            @include user-border-seperator;
+          }
+        }
+        &__user-bank-details {
+          @include flex-column;
+          gap: 0.75rem;
+          position: relative;
+          padding-left: 1.67rem;
+          h4 {
+            font-weight: 500;
+            font-size: 1.22rem;
+            color: $primary-darker;
+          }
+          p {
+            font-size: 0.75rem;
+          }
+          &::before {
+            @include user-border-seperator;
+          }
+        }
+      }
+      .tab-header {
+        @include flex-row;
+      }
+    }
+    &--tab-info {
+      @include flex-column;
+      gap: 1.67rem;
+      border-radius: 4px;
+      border: 1px solid rgba(33, 63, 125, 0.06);
+      background: $white;
+      box-shadow: 3px 5px 20px 0px rgba(0, 0, 0, 0.04);
+      padding: 1.67rem;
+      .personal-info,
+      .education-employment-info,
+      .socials,
+      .guarantor-section,
+      .guarantor-section2 {
+        @include flex-column;
+        gap: 1.67rem;
+        padding-bottom: 1.67rem;
+        border-bottom: 1px solid rgba(33, 63, 125, 0.1);
+        h5 {
+          font-weight: 500;
+          font-size: 0.89rem;
+          color: $primary-darker;
+        }
+        &__item-group {
+          @include flex-row;
+          flex-wrap: wrap;
+          row-gap: 1.67rem;
+          width: 100%;
+          &--item {
+            @include flex-column;
+            gap: 0.5rem;
+            flex-basis: 20%; // calc(20% - 21.4px)
+            .item-title {
+              font-size: 0.67rem;
+              text-transform: uppercase;
+            }
+          }
+        }
+      }
+      .education-employment-info {
+        &__item-group {
+          &--item {
+            flex-basis: 25%;
+          }
+        }
+      }
+      .guarantor-section2 {
+        padding-bottom: 0;
+        border-bottom: 0;
+      }
+    }
+  }
+  @media screen and (min-width: 1440px) {
+    gap: 2.5rem;
+    &__header {
+      gap: 2rem;
+      &--back {
+        svg {
+          width: 1.875rem;
+          height: 1.875rem;
+        }
+      }
+      &--title {
+        &--buttons {
+          gap: 1.25rem;
+        }
+      }
+    }
+    &__user-info {
+      gap: 1.875rem;
+      &--primary-info {
+        .primary-info-wrapper {
+          gap: 1.875rem;
+          padding: 1.875rem 1.875rem 0;
+          &__user-summary {
+            gap: 1.25rem;
+            &--user-icon {
+              @include flex-centered-row;
+              min-width: 6.25rem;
+              min-height: 6.25rem;
+              width: 6.25rem;
+              height: 6.25rem;
+              svg {
+                width: 2.5rem;
+                height: 2.5rem;
+              }
+            }
+            &--user {
+              &--user-name {
+                font-size: 1.375rem;
+              }
+            }
+          }
+          &__user-tier {
+            padding-left: 1.875rem;
+          }
+          &__user-bank-details {
+            padding-left: 1.875rem;
+            h4 {
+              font-size: 1.375rem;
+            }
+          }
+        }
+        .tab-header {
+          @include flex-row;
+        }
+      }
+      &--tab-info {
+        padding: 1.875rem;
+        gap: 1.875rem;
+        .personal-info,
+        .education-employment-info,
+        .socials,
+        .guarantor-section,
+        .guarantor-section2 {
+          gap: 1.875rem;
+          padding-bottom: 1.875rem;
+          h5 {
+            font-size: 1rem;
+          }
+          &__item-group {
+            row-gap: 1.875rem;
+            &--item {
+              .item-title {
+                font-size: 0.75rem;
+              }
+            }
+          }
+        }
+        .guarantor-section2 {
+          padding-bottom: 0;
+        }
+      }
+    }
+  }
+}
