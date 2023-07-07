@@ -1,9 +1,11 @@
 @import './assets/styles/variables';
 @import './assets/styles/mixins';
-@import './login/Login.scss';
-@import './common/layout/layout.scss';
 @import './common/card/Card.scss';
 @import './common/button/Button.scss';
+@import './common/filterForm/FilterForm.scss';
+@import './common/form/Form.scss';
+@import './common/mainLayout/Layout.scss';
+@import './login/Login.scss';
 @import './dashboard/Users.scss';
 @import './dashboard/UserDetails.scss';
 
