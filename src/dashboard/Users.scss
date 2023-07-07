@@ -1,24 +1,67 @@
 .users-list-wrapper {
   @include flex-column;
   gap: 1.5rem;
-  &__header-title {
+  .header-title {
     color: $primary-darker;
     font-weight: 500;
   }
-  &__users-summary {
+  .users-summary {
     @include flex-row;
     gap: 1.25rem;
   }
+  .table-wrapper {
+    border-radius: 4px;
+    border: 1px solid rgba(33, 63, 125, 0.06);
+    background: $white;
+    box-shadow: 3px 5px 20px 0px rgba(0, 0, 0, 0.04);
+    padding: 1.875rem 1.875rem 1rem;
+    overflow-x: auto;
+  
+    table.custom-table {
+      width: 100%;
+      border-collapse: collapse;
+      border-spacing: 0;
+      margin-bottom: 0;
+      white-space: nowrap;
+  
+      thead th {
+        padding-right: 2.2875rem;
+        padding-bottom: 1rem;
+        text-align: left;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        font-weight: 600;
+        .filter {
+          margin-left: 0.625rem;
+          svg {
+            vertical-align: bottom;
+            cursor: pointer;
+          }
+        }
+      }
+  
+      tbody tr td {
+        padding: 0.9375rem 2.2875rem 1rem 0;
+        &.item-options {
+          cursor: pointer;
+        }
+      }
+      tbody tr:not(:last-child) {
+        border-bottom: 1px solid rgba(33, 63, 125, 0.1);
+      }
+    }
+  }
+  
   @media screen and (max-width: 991px) {
     gap: 2rem;
-    &__users-summary {
+    .users-summary {
       flex-wrap: wrap;
       gap: 1.625rem;
     }
   }
   @media screen and (min-width: 1440px) {
     gap: 2.5rem;
-    &__users-summary {
+    .users-summary {
       gap: 1.625rem;
     }
   }
