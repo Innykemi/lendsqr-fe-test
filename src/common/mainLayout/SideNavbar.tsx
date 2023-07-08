@@ -21,9 +21,14 @@ import { ReactComponent as ClipboardList } from "../../assets/images/icons/clipb
 import { ReactComponent as Tire } from "../../assets/images/icons/tire.svg";
 import { ReactComponent as LogoutIcon } from "../../assets/images/icons/sign-out.svg";
 
-function SideNavbar() {
+interface SideNavbarProps {
+  isOpen: boolean;
+}
+
+function SideNavbar({ isOpen }: SideNavbarProps) {
   return (
-    <div className="sidenavbar-wrapper">
+    <div className={`sidenavbar-wrapper ${isOpen ? "open" : ""}`}>
+      <>
       <Link className="nav-item" to="#">
         <Briefcase />
         <p>Switch Organization</p>
@@ -125,6 +130,7 @@ function SideNavbar() {
         <Tire />
         <p>Systems Messages</p>
       </Link>
+      </>
       <div className="nav-footer">
         <Link className="nav-item" to="#">
           <LogoutIcon />

@@ -8,6 +8,7 @@
       width: calc(100vw - 15.72rem);
       margin-left: auto;
       padding: 3.33rem;
+      background-color: #FBFBFB;
     }
   }
   @media screen and (min-width: 1440px) {
@@ -15,6 +16,15 @@
     .content-container {
       width: calc(100vw - 17.6875rem);
       padding: 3.75rem;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    margin-top: 4.375rem;
+    .container {
+      .content-container {
+        width: 100%;
+        padding: 1.875rem;
+      }
     }
   }
 }
@@ -25,18 +35,104 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1.25rem;
   padding: 1.25rem 3.75rem 1.25rem 1.875rem ;
   border-radius: 0.5rem;
   width: 100%;
   box-sizing: border-box;
   background-color: white;
+  z-index: 99;
   filter: drop-shadow(3px 0px 20px rgba(0, 0, 0, 0.04));
   height: 5.56rem;
-  svg {
-    width: 145px;
+  .logo-img {
+    width: 9.0625rem;
   }
-  @media screen and (min-width: 1440px) {
-    height: 6.25rem;
+  @media screen and (max-width: 768px) {
+    height: 4.375rem;
+    padding-right: 1.875rem;
+  }
+  .search {
+    width: 100%;
+		max-width: 400px;
+		height: 40px;
+		display: flex;
+		align-items: center;
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+		input {
+			border-radius: 8px;
+			border-top-right-radius: 0px;
+			border-top-right-radius: 0px;
+			border-bottom-right-radius: 0px;
+			border: 1px solid rgba(33, 63, 125, 0.2);
+			height: 40px;
+			opacity: 0.5;
+			width: calc(100% - 3.5rem);
+			height: 100%;
+			padding: 0px 0.75rem;
+			outline: none;
+			&::placeholder {
+				@include input-placeholder;
+			}
+		}
+		button {
+			border-radius: 8px;
+			border-top-left-radius: 0px;
+			border-bottom-left-radius: 0px;
+			width: 3.5rem;
+			background-color: $primary-dark;
+			height: 100%;
+			display: flex;
+      outline: none;
+      border: none;
+			justify-content: center;
+			align-items: center;
+		}
+	}
+  .topbar-right-group {
+    display: flex;
+    align-items: center;
+    gap: 1.875rem;
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+    .info-links {
+      display: flex;
+      align-items: flex-end;
+      gap: 2.61rem;
+    }
+    .user-avatar-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 0.625rem;
+      color: $primary-darker;
+      .avatar {
+        min-height: 2.67rem;
+        min-width: 2.67rem;
+        height: 2.67rem;
+        width: 2.67rem;
+        border-radius: 50%;
+      }
+      p {
+        white-space: nowrap;
+        svg {
+          margin-left: 0.25rem;
+          vertical-align: bottom;
+        }
+      }
+    }
+  }
+  .mobile-navbar-wrapper {
+    padding: 10px;
+    display: none;
+    @media screen and (max-width: 768px) {
+      display: flex;
+    }
+    button {
+      max-height: 2.75rem;
+    }
   }
 }
 
@@ -48,7 +144,7 @@
   min-height: calc(100vh - 5.56rem);
   position: fixed;
   left: 0;
-  padding: 2.4375rem 0 0;
+  padding: 1.8125rem 0 0;
   background: $white;
   box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.04);
   overflow-y: scroll;
@@ -82,6 +178,7 @@
     font-size: 0.75rem;
     color: $primary-color;
     padding: 0 1.875rem;
+    margin-top: 1.25rem;
   }
   .nav-footer {
     margin-top: 3.75rem;
@@ -92,7 +189,48 @@
       font-size: 0.75rem;
     }
   }
+  &.open {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transform: translateX(0);
+    transition: transform 0.8s ease-in;
+    height: calc(100vh - 4.375rem);
+    position: fixed;
+    left: 0;
+    z-index: 1;
+  }
   @media screen and (min-width: 1440px) {
     width: 17.6875rem;
+    .topbar-wrapper {
+      padding: 1.25rem 3.75rem 1.25rem 1.875rem;
+      height: 6.25rem;
+      .search {
+        max-width: 400px;
+        button {
+          width: 3.5rem;
+        }
+      }
+      .topbar-right-group {
+        gap: 1.875rem;
+        .info-links {
+          gap: 2.9375rem;
+        }
+        .user-avatar-wrapper {
+          .avatar {
+            min-height: 3rem;
+            min-width: 3rem;
+            height: 3rem;
+            width: 3rem;
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 768px) {
+    display: none;
+		position: absolute;
+		left: 0;
+		height: 100%;
   }
 }
