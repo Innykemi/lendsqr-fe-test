@@ -3,7 +3,7 @@ import TextField from '../form/TextField';
 import SelectField from '../form/Select';
 import Button from '../button/Button';
 
-interface CardProps {
+interface FilterProps {
   onSubmit: (formData: {
     organization: string;
     username: string;
@@ -15,7 +15,7 @@ interface CardProps {
   onReset: () => void;
 }
 
-function FilterForm({ onSubmit, onReset }: CardProps) {
+function FilterForm({ onSubmit, onReset }: FilterProps) {
   const [formData, setFormData] = useState({
     organization: '',
     username: '',
@@ -58,8 +58,11 @@ function FilterForm({ onSubmit, onReset }: CardProps) {
         position: 'absolute',
       }}
     >
-      <SelectField label="Organization" name="organization" value={formData.organization} onChange={handleChange}>
-        <option value=""></option>
+      <SelectField
+        label="Organization" name="organization"
+        value={formData.organization}
+        onChange={handleChange}>
+        <option value="">Select</option>
       </SelectField>
       <TextField
         label="Username"
@@ -104,11 +107,24 @@ function FilterForm({ onSubmit, onReset }: CardProps) {
         <option value="active">Active</option>
         <option value="blacklisted">Blacklisted</option>
       </SelectField>
-
-      <Button type="button" onClick={handleReset}>
-        Reset
-      </Button>
-      <Button type="submit">Filter</Button>
+      <div className="btn-group">
+        <Button
+          variant="outlined"
+          borderColor="#545F7D"
+          textColor="#545F7D"
+          onClick={handleReset}
+        >
+          Reset
+        </Button>
+        <Button
+          variant="filled"
+          bgColor="#39CDCC"
+          textColor="#fff"
+          type="submit"
+        >
+          Filter
+        </Button>
+      </div>
     </form>
   );
 }

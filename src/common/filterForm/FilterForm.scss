@@ -15,4 +15,13 @@
     max-width: 16.875rem;
     width: 16.875rem;
   }
+  .btn-group {
+    @include flex-row;
+    gap: 0.875rem;
+  }
+  select {
+    border-radius: 8px;
+    border: 1px solid rgba(84, 95, 125, 0.2);
+    box-shadow: none;
+  }
 }
