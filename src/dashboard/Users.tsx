@@ -1,4 +1,7 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { format, parseISO } from 'date-fns';
+import { getAllUsers } from '../api';
 import Layout from '../common/mainLayout/Layout';
 import UsersCard from '../common/card/Card';
 import { ReactComponent as FilterIcon } from "../assets/images/icons/filter.svg";
@@ -7,9 +10,14 @@ import { ReactComponent as MoneyIcon } from "../assets/images/icons/money.svg";
 import { ReactComponent as More } from "../assets/images/icons/more.svg";
 import { ReactComponent as UsersOutline } from "../assets/images/icons/users-outline.svg";
 import { ReactComponent as UserFriendsOutline } from "../assets/images/icons/user-friends-outline.svg";
+import { ReactComponent as UserTimes } from "../assets/images/icons/user-times.svg";
+import { ReactComponent as UserCheck } from "../assets/images/icons/user-check.svg";
+import { ReactComponent as EyeIcon } from "../assets/images/icons/eye.svg";
+import { ReactComponent as PrevBtn } from "../assets/images/icons/prev-btn.svg";
+import { ReactComponent as NextBtn } from "../assets/images/icons/next-btn.svg";
 import FilterForm from '../common/filterForm/FilterForm';
-import {getAllUsers} from '../api';
-import { useNavigate } from 'react-router-dom';
+import Select from '../common/form/Select';
+
 
 interface User {
   id: number;
@@ -180,62 +188,62 @@ function Dashboard() {
             iconWrapperBg="rgba(255, 51, 102, 0.1)" />
         </div>
         <div className="table-wrapper">
-        {loading ? (
-          <div id="loading-spinner" className='loader'></div>
-        ) : (
-          <>
-            <table className="custom-table">
-              <thead>
-                <tr>
-                  <th>Organization
-                    <span className="filter" onClick={handleFilterClick}>
-                      <FilterIcon />
-                    </span>
-                    {showFilter && (
-                      <FilterForm
-                        onSubmit={handleFilter}
-                        onReset={handleReset}
-                      />
-                    )}
-                  </th>
-                  <th>Username
-                    <span className="filter" onClick={handleFilterClick}>
-                      <FilterIcon />
-                    </span>
-                  </th>
-                  <th>Email
-                    <span className="filter" onClick={handleFilterClick}>
-                      <FilterIcon />
-                    </span>
-                  </th>
-                  <th>Phone number
-                    <span className="filter" onClick={handleFilterClick}>
-                      <FilterIcon />
-                    </span>
-                  </th>
-                  <th>Date joined
-                    <span className="filter" onClick={handleFilterClick}>
-                      <FilterIcon />
-                    </span>
-                  </th>
-                  <th>Status
-                    <span className="filter" onClick={handleFilterClick}>
-                      <FilterIcon />
-                    </span>
-                  </th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                {currentPageUsers.map(user => (
-                  <tr key={user.id}>
-                    <td>{user.companyName}</td>
-                    <td>{user.username}</td>
-                    <td>{user.email}</td>
-                    <td>{user.phoneNumber}</td>
-                    <td>{user.createdAt}</td>
-                    <td className={user.status}>{user.status}</td>
-                    <td
+          {loading ? (
+            <div id="loading-spinner" className='loader'></div>
+          ) : (
+            <>
+              <table className="custom-table">
+                <thead>
+                  <tr>
+                    <th>Organization
+                      <span className="filter" onClick={handleFilterClick}>
+                        <FilterIcon />
+                      </span>
+                      {showFilter && (
+                        <FilterForm
+                          onSubmit={handleFilter}
+                          onReset={handleReset}
+                        />
+                      )}
+                    </th>
+                    <th>Username
+                      <span className="filter" onClick={handleFilterClick}>
+                        <FilterIcon />
+                      </span>
+                    </th>
+                    <th>Email
+                      <span className="filter" onClick={handleFilterClick}>
+                        <FilterIcon />
+                      </span>
+                    </th>
+                    <th>Phone number
+                      <span className="filter" onClick={handleFilterClick}>
+                        <FilterIcon />
+                      </span>
+                    </th>
+                    <th>Date joined
+                      <span className="filter" onClick={handleFilterClick}>
+                        <FilterIcon />
+                      </span>
+                    </th>
+                    <th>Status
+                      <span className="filter" onClick={handleFilterClick}>
+                        <FilterIcon />
+                      </span>
+                    </th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {currentPageUsers.map(user => (
+                    <tr key={user.id}>
+                      <td>{user.companyName}</td>
+                      <td>{user.username}</td>
+                      <td>{user.email}</td>
+                      <td>{user.phoneNumber}</td>
+                      <td>{format(parseISO(user.createdAt), "MMMM d, yyyy h:mm a")}</td>
+                      <td className={`tag ${user.status.toLowerCase()}`}>{user.status}</td>
+                      <td
                         className="item-options"
                         onClick={() => handleMoreClick(user)}
                       >
@@ -243,68 +251,70 @@ function Dashboard() {
                         {showMoreMenu && selectedUser?.id === user.id && (
                           <div className="more-menu">
                             <ul>
-                              <li onClick={() => handleViewDetails(user)}>View Details</li>
-                              <li>Blacklist Users</li>
-                              <li>Activate Users</li>
+                              <li onClick={() => handleViewDetails(user)}>
+                                <EyeIcon />
+                                View Details
+                              </li>
+                              <li><UserTimes fill="#545F7D" />Blacklist Users</li>
+                              <li><UserCheck fill="#545F7D" />Activate Users</li>
                             </ul>
                           </div>
                         )}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-            <div className="pagination">
-              <div className="page-info">
-                Showing {" "} <div className="page-size">
-                <select value={pageSize} onChange={handlePageSizeChange}>
-                  <option value={20}>20</option>
-                  <option value={50}>50</option>
-                  <option value={100}>100</option>
-                </select>
-              </div> out of {totalPageCount} pages
-              </div>
-              <div className="page-navigation">
-                <button
-                  onClick={handlePreviousPage}
-                  disabled={pageNumber === 1}
-                >
-                  Previous
-                </button>
-                {pageNumber > 1 && (
-                  <>
-                    <button onClick={() => setPageNumber(1)}>1</button>
-                    {pageNumber > 3 && <span>...</span>}
-                  </>
-                )}
-                {pageNumber > 2 && (
-                  <button onClick={() => setPageNumber(pageNumber - 1)}>
-                    {pageNumber - 1}
-                  </button>
-                )}
-                <button className="current-page">{pageNumber}</button>
-                {pageNumber < totalPageCount - 1 && (
-                  <button onClick={() => setPageNumber(pageNumber + 1)}>
-                    {pageNumber + 1}
-                  </button>
-                )}
-                {pageNumber < totalPageCount - 2 && <span>...</span>}
-                {pageNumber < totalPageCount && (
-                  <button onClick={() => setPageNumber(totalPageCount)}>
-                    {totalPageCount}
-                  </button>
-                )}
-                <button
-                  onClick={handleNextPage}
-                  disabled={pageNumber === totalPageCount}
-                >
-                  Next
-                </button>
-              </div>
-
-            </div>
-          </>
-        )}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </>
+          )}
+        </div>
+        <div className="pagination">
+          <div className="page-info">
+            Showing {" "} <div className="page-size">
+            <Select value={pageSize} onChange={handlePageSizeChange} className="page-select">
+              <option value={20}>20</option>
+              <option value={50}>50</option>
+              <option value={100}>100</option>
+            </Select>
+          </div> out of {totalPageCount} pages
+          </div>
+          <div className="page-navigation">
+            <button
+              onClick={handlePreviousPage}
+              disabled={pageNumber === 1}
+            >
+              <PrevBtn />
+            </button>
+            {pageNumber > 1 && (
+              <>
+                <button onClick={() => setPageNumber(1)}>1</button>
+                {pageNumber > 3 && <span>...</span>}
+              </>
+            )}
+            {pageNumber > 2 && (
+              <button onClick={() => setPageNumber(pageNumber - 1)}>
+                {pageNumber - 1}
+              </button>
+            )}
+            <button className="current-page">{pageNumber}</button>
+            {pageNumber < totalPageCount - 1 && (
+              <button onClick={() => setPageNumber(pageNumber + 1)}>
+                {pageNumber + 1}
+              </button>
+            )}
+            {pageNumber < totalPageCount - 2 && <span>...</span>}
+            {pageNumber < totalPageCount && (
+              <button onClick={() => setPageNumber(totalPageCount)}>
+                {totalPageCount}
+              </button>
+            )}
+            <button
+              onClick={handleNextPage}
+              disabled={pageNumber === totalPageCount}
+            >
+              <NextBtn />
+            </button>
+          </div>
         </div>
       </div>
     </Layout>

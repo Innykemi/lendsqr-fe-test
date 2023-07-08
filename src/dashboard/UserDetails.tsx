@@ -1,11 +1,10 @@
 import { useEffect, useMemo } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
+import Button from '../common/button/Button';
 import Layout from '../common/mainLayout/Layout';
-// import { ReactComponent as UserOutline } from "../assets/images/icons/user-outline.svg";
 import { ReactComponent as BackArrow } from "../assets/images/icons/back-arrow.svg";
 import { ReactComponent as Star } from "../assets/images/icons/star.svg";
 import { ReactComponent as StarOutline } from "../assets/images/icons/star-outline.svg";
-import Button from '../common/button/Button';
 
 interface User {
   id: number;
@@ -46,8 +45,6 @@ interface User {
 function UserDetails() {
   const { id }: { id?: string } = useParams();
   const navigate = useNavigate();
-
-  console.log("I am here", id);
 
   const user: User | undefined = useMemo(() => {
     const usersData = localStorage.getItem('lend-users');
@@ -105,7 +102,7 @@ function UserDetails() {
           <div className="user-primary-info">
             <div className="primary-info-wrapper">
               <div className="user-summary">
-                <div className="icon"><img src={user.profile.avatar} alt='profilePhoto'/></div>
+                <img src={user.profile.avatar} className="user-img" alt='profilePhoto'/>
                 <div className="user-details">
                   <h4 className="user-name">
                     {user.profile.firstName} {user.profile.lastName}
@@ -242,26 +239,6 @@ function UserDetails() {
                 </div>
                 <div className="item">
                   <p className="item-title">Relationship</p>
-                  <h5>Sister</h5>
-                </div>
-              </div>
-            </div>
-            <div className="guarantor-section2">
-              <div className="item-group">
-                <div className="item">
-                  <p className="item-title">full Name</p>
-                  <h5>{user.profile.firstName} {user.profile.lastName}</h5>
-                </div>
-                <div className="item">
-                  <p className="item-title">Phone Number</p>
-                  <h5>{user.phoneNumber}</h5>
-                </div>
-                <div className="item">
-                  <p className="item-title">Email Address</p>
-                  <h5>{user.email}</h5>
-                </div>
-                <div className="item">
-                  <p className="item-title">Relationshipt</p>
                   <h5>Sister</h5>
                 </div>
               </div>

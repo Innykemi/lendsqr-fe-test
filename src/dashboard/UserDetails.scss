@@ -46,18 +46,12 @@
         .user-summary {
           @include flex-row;
           gap: 1.11rem;
-          .icon {
-            @include flex-centered-row;
+          .user-img {
             min-width: 5.56rem;
             min-height: 5.56rem;
             width: 5.56rem;
             height: 5.56rem;
             border-radius: 50%;
-            background-color: rgba(33, 63, 125, 0.16);
-            svg {
-              width: 2.22rem;
-              height: 2.22rem;
-            }
           }
           .user-details {
             @include flex-column;
@@ -117,9 +111,10 @@
           padding: 0.44rem 1.5625rem;
           font-size: 0.89rem;
           white-space: nowrap;
-          cursor: pointer;
+          cursor: not-allowed;
           &.active {
             border-bottom: 2px solid $primary-dark;
+            cursor: pointer;
           }
         }
       }
@@ -135,8 +130,7 @@
       .personal-info,
       .education-employment-info,
       .socials,
-      .guarantor-section,
-      .guarantor-section2 {
+      .guarantor-section {
         @include flex-column;
         gap: 1.67rem;
         padding-bottom: 1.67rem;
@@ -169,7 +163,7 @@
           }
         }
       }
-      .guarantor-section2 {
+      .guarantor-section {
         padding-bottom: 0;
         border-bottom: 0;
       }
@@ -200,16 +194,11 @@
           padding: 1.875rem;
           .user-summary {
             gap: 1.25rem;
-            .icon {
-              @include flex-centered-row;
+            .user-img {
               min-width: 6.25rem;
               min-height: 6.25rem;
               width: 6.25rem;
               height: 6.25rem;
-              svg {
-                width: 2.5rem;
-                height: 2.5rem;
-              }
             }
             .user-details {
               .user-name {
@@ -241,8 +230,7 @@
         .personal-info,
         .education-employment-info,
         .socials,
-        .guarantor-section,
-        .guarantor-section2 {
+        .guarantor-section {
           gap: 1.875rem;
           padding-bottom: 1.875rem;
           h5 {
@@ -257,7 +245,7 @@
             }
           }
         }
-        .guarantor-section2 {
+        .guarantor-section {
           padding-bottom: 0;
         }
       }
@@ -269,8 +257,7 @@
         .personal-info,
         .education-employment-info,
         .socials,
-        .guarantor-section,
-        .guarantor-section2 {
+        .guarantor-section {
           .item-group {
             .item {
               flex-basis: calc(33% - 18px);
@@ -289,18 +276,12 @@
           .user-summary {
             flex-wrap: wrap;
             gap: 0.75rem;
-            .icon {
-              @include flex-centered-row;
+            .user-img {
               min-width: 3.5rem;
               min-height: 3.5rem;
               width: 3.5rem;
               height: 3.5rem;
-              border-radius: 50%;
-              background-color: rgba(33, 63, 125, 0.16);
-              svg {
-                width: 1rem;
-                height: 1rem;
-              }
+              border-radius: 50px;
             }
             .user-details {
               .user-name {
@@ -348,8 +329,7 @@
         .personal-info,
         .education-employment-info,
         .socials,
-        .guarantor-section,
-        .guarantor-section2 {
+        .guarantor-section {
           gap: 1rem;
           padding-bottom: 1rem;
           h5 {
