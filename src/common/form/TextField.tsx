@@ -1,4 +1,4 @@
-interface CardProps {
+interface TextFieldProps {
   label?: string;
   placeholder?: string;
   type?: string;
@@ -8,7 +8,7 @@ interface CardProps {
   onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
 }
     
-function TextField({ label, placeholder, onChange, value, type="text", name, borderRadius="5px", ...rest }: CardProps) {
+function TextField({ label, placeholder, onChange, value, type="text", name, borderRadius="5px", ...rest }: TextFieldProps) {
   return (
     <div className="text-field">
       {label &&
