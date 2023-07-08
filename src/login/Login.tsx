@@ -34,30 +34,29 @@ export default function Login() {
 
   return (
     <div className="login-wrapper" onSubmit={handleSubmit}>
-      <div className="login-wrapper__logo-banner">
+      <div className="logo-banner">
         <Logo className="logo-img" />
       </div>
-
-      <div className="login-wrapper__login-img-wrapper">
+      <div className="login-img-wrapper">
         <LoginImage className="login-img" />
       </div>
 
-      <div className="login-wrapper__form-wrapper">
-        <div className="login-wrapper__form-wrapper--header">
+      <div className="form-wrapper">
+        <div className="header">
           <h1 className="title">Welcome!</h1>
           <div className="sub-title"> Enter details to login.</div>
         </div>
 
         <form>
-          <div className="login-wrapper__form-wrapper--input-fields">
+          <div className="input-fields">
             <input type="email" ref={emailRef} placeholder="Email" className="email-input" />
             <input type="password" ref={passwordRef} placeholder="Password" className="password-input" />
           </div>
           {error && (
             <div className="error-text">{error}</div>
           )}
-          <div className="login-wrapper__form-wrapper--forgot-password">Forgot Password?</div>
-          <button className="login-wrapper__form-wrapper--login-btn" type="submit">Log In</button>
+          <div className="forgot-password">Forgot Password?</div>
+          <button className="login-btn" type="submit">Log In</button>
         </form>
       </div>
     </div>

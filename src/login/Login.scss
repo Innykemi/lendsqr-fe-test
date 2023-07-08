@@ -6,35 +6,38 @@
   min-height: 100vh;
   box-sizing: border-box;
 
-  &__logo-banner {
+  .logo-banner {
     position: absolute;
-    top: 100px;
+    top: 70px;
     left: 97px;
     .logo-img {
       width: 10.875rem;
     }
   }
 
-  &__login-img-wrapper {
+  .login-img-wrapper {
     @include flex-column-justify-center;
     padding: 0 4.3125rem 0 4.1875rem;
     width: 100%;
     min-height: 100vh;
+    flex: 0.51;
     .login-img {
-      width: 600px;
+      width: 100%;
+      height: auto;
+      display: block;
     }
   }
 
-  &__form-wrapper {
+  .form-wrapper {
     @include flex-column-justify-center;
     width: 100%;
     min-height: 100vh;
-    padding: 0 6.25rem;
-
-    &--header {
+    padding: 0 5rem;
+    flex: 0.49;
+    .header {
       @include flex-column;
       gap: 0.625rem;
-      margin-bottom: 3.75rem;
+      margin-bottom: 3.33rem;
       .title {
         color: $primary-darker;
         font-size: 2.5rem;
@@ -45,7 +48,7 @@
         font-size: 1.25rem;
       }
     }
-    &--input-fields {
+    .input-fields {
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
@@ -64,7 +67,11 @@
         }
       }
     }
-    &--forgot-password {
+    .error-text {
+      margin-top: 0.75rem;
+      color: #E4033B;
+    }
+    .forgot-password {
       font-size: 0.75rem;
       color: $primary-dark;
       text-transform: uppercase;
@@ -73,7 +80,7 @@
       letter-spacing: 0.1em;
       cursor: pointer;
     }
-    &--login-btn {
+    .login-btn {
       @include btn-style;
       font-size: 0.875rem;
       width: 100%;
@@ -88,30 +95,55 @@
       padding: 0 9.8125rem 0 6.25rem;
     }
   }
+  
+  @media screen and (min-width: 1440px) {
+    .logo-banner {
+      top: 100px;
+    }
+    .login-img-wrapper {
+      padding: 0 3.125rem;
+      min-height: auto;
+      .login-img {
+        width: 600px;
+      }
+    }
+  }
+  @media screen and (max-width: 991px) {
+    .login-img-wrapper {
+      padding: 0 2.875rem;
+      .login-img {
+        width: 400px;
+        margin: 0 auto;
+      }
+    }
+    .form-wrapper {
+      padding: 0 2rem 2rem;
+      min-height: auto;
+      .header {
+        margin-bottom: 3.75rem;
+      }
+    }
+  }
   @media screen and (max-width: 768px) {
     @include flex-column;
     gap: 2rem;
-    &__logo-banner {
+    .logo-banner {
       position: relative;
       top: 0;
       left: 0;
       padding-top: 3.125rem;
     }
-    &__login-img-wrapper {
+    .login-img-wrapper {
       padding: 0 3.125rem;
       min-height: auto;
-      .login-img {
-        width: 100%;
-        height: auto;
-      }
     }
 
-    &__form-wrapper {
+    .form-wrapper {
       padding: 0 3.125rem 3.125rem;
       min-height: auto;
       .header-text {
         font-size: 1.5rem;
       }
     }
-  }     
+  }
 }
