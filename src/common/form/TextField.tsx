@@ -3,9 +3,12 @@ interface CardProps {
   placeholder?: string;
   type?: string;
   borderRadius?: string;
+  name?: string;
+  value?: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
 }
     
-function TextField({ label, placeholder, type="text", borderRadius="5px", ...rest }: CardProps) {
+function TextField({ label, placeholder, onChange, value, type="text", name, borderRadius="5px", ...rest }: CardProps) {
   return (
     <div className="text-field">
       {label &&
@@ -15,6 +18,9 @@ function TextField({ label, placeholder, type="text", borderRadius="5px", ...res
         className="text-input"
         placeholder={placeholder}
         type={type}
+        name={name}
+        value={value}
+        onChange={onChange}
         style={{ borderRadius: borderRadius }} {...rest}
       />
     </div>

@@ -1,12 +1,16 @@
 interface CardProps {
   children: React.ReactNode;
+  label: string;
+  name: string;
+  value?: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
 }
   
-function Select({ children }: CardProps) {
+function Select({ children, value, onChange, label, name }: CardProps) {
   return (
     <div className="input-field">
-      <label htmlFor="organization">Organization</label>
-      <select value="select" name="organization">
+      <label htmlFor={label}>{label}</label>
+      <select value={value} name={name} onChange={onChange}>
         {children}
       </select>
     </div>
